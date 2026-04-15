@@ -15,9 +15,9 @@ from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
-from preprocess import run_preprocessing, DOMAIN_RANGES
-from dataset import FlotationWaveletDataset
-from model import FlotationNetWithWavelet, weighted_mse
+from src.preprocess import run_preprocessing, DOMAIN_RANGES
+from src.dataset import FlotationWaveletDataset
+from src.model import FlotationNetWithWavelet, weighted_mse
 
 
 # =========================================================
@@ -113,7 +113,7 @@ def train(model, train_loader, test_loader, device, results_dir: str):
         model.parameters(), lr=hp['lr'], weight_decay=hp['weight_decay']
     )
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-        optimizer, mode='min', patience=10, factor=0.5, verbose=True
+    optimizer, mode='min', patience=10, factor=0.5
     )
 
     best_test_loss   = float('inf')

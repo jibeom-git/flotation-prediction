@@ -1,16 +1,11 @@
 [project]
 name = "flotation-prediction"
 version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.11, <3.14"
 dependencies = [
-    "ipykernel>=7.2.0",
-    "jupyter>=1.1.1",
-    "matplotlib>=3.10.8",
-    "numpy>=2.4.4",
-    "pandas>=3.0.2",
-    "pywavelets>=1.9.0",
-    "scikit-learn>=1.8.0",
     "torch>=2.11.0",
 ]
+
+[[tool.uv.index]]
+url = "https://download.pytorch.org/whl/cu128"
+default = true
